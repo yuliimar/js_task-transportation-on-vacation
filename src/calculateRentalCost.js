@@ -4,24 +4,15 @@
  * @return {number}
  */
 function calculateRentalCost(days) {
-  const DAILY_RATE = 80;
-  const THREE_DAY_DISCOUNT = 100;
-  const SIX_DAY_DISCOUNT = 220;
-  const WEEKLY_DISCOUNT = 230;
+  let price = days * 40;
 
-  if (days === 3) {
-    return THREE_DAY_DISCOUNT;
+  if (days >= 7) {
+    price -= 50;
+  } else if (days >= 3) {
+    price -= 20;
   }
 
-  if (days === 6) {
-    return SIX_DAY_DISCOUNT;
-  }
-
-  if (days === 7) {
-    return WEEKLY_DISCOUNT;
-  }
-
-  return DAILY_RATE;
+  return price;
 }
 
 module.exports = calculateRentalCost;
